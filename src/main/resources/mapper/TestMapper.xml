@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PayTestDao">
+    <!-- ID:就是接口方法的name   resultType:返回到那个类 实体类名   namespace:接口路径-->
+    <select id="seall" resultType="com.entity.PayTest">
+        select * from paytest2
+    </select>
+</mapper>

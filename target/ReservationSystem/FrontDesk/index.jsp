@@ -1,0 +1,65 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 羡羡
+  Date: 2021/10/6
+  Time: 10:57
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>机票预订系统</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
+    <style>
+        body {
+            /*background: url("../../static/img/flight-bg.jpg");*/
+            background: url("/ReservationSystem/images/flight-bg.jpg");
+            background-size: cover;
+            /*自适应浏览器*/
+        }
+    </style>
+</head>
+<body>
+
+<!--导航条适应背景色-->
+<nav class="navbar nav-divider">
+    <div class="container-fluid" style="margin-top: 10px">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="" style="color: ghostwhite; font-size: 50px;">CSU Airlines</a>
+        </div>
+        <div class="navbar-right">
+            <a class="navbar-brand" href="" style="color: ghostwhite; font-size: 24px;">LOG IN</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="position:absolute;margin-top:10%;width: 35%;left: 5%">
+    <h1 style="color: white">Where are we flying now ?</h1>
+    <br>
+    <form class="form-horizontal" action="https://www.baidu.com" method="post">
+        <div class="input-group">
+            <label for="leave_city" class="input-group-addon">出发城市</label>
+            <!--input必须要指定name-->
+            <input id="leave_city" type="text" name="leave_city" class="form-control" placeholder="City">
+        </div>
+        <br>
+        <div class="input-group">
+            <label for="arrive_city" class="input-group-addon">到达城市</label>
+            <input id="arrive_city" type="text" name="arrive_city" class="form-control" placeholder="City">
+        </div>
+        <br>
+        <div class="input-group">
+            <label for="leave_date" class="input-group-addon">出发日期</label>
+            <input id="leave_date" type="date" name="leave_date" class="form-control" placeholder="Date">
+        </div>
+        <br>
+        <center>
+            <button type="submit" class="btn btn-success">Let's Go</button>
+        </center>
+    </form>
+</div>
+</body>
+</html>
