@@ -19,4 +19,26 @@ public class ComputationTime {
         long betweenDay = DateUtil.between(date1, date2, DateUnit.DAY);
         System.out.println(betweenDay);
     }
+
+
+    @Test
+    public  void tes2(){
+        Date da=new Date();
+        String formatTime = DateUtil.formatTime(da);
+        System.out.println(formatTime);
+    }
+
+    @Test
+    public void test3(){
+        String today= DateUtil.today();
+        Date date = DateUtil.parse(today);
+
+        String oldday="2020-10-05";
+        Date olddate = DateUtil.parse(oldday);
+        if(date.getTime()>olddate.getTime()){
+            System.out.println("date大");
+        }else{
+            System.out.println("date小");
+        }
+    }
 }

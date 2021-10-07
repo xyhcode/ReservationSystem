@@ -10,5 +10,10 @@ import java.util.List;
  */
 public interface SearchTicketDao {
 
+   /**
+    *首页搜索
+    * @param fg
+    * @return
+    */
    public List seall(FlightInfo fg);
 }

@@ -4,7 +4,9 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <package name="helloworld" extends="struts-default" namespace="/">
-
+    <package name="helloworld" extends="struts-default,json-default" namespace="/">
+        <action name="logac" class="com.action.SearchAllAction">
+            <result>/FrontDesk/result.jsp</result>
+        </action>
     </package>
 </struts>

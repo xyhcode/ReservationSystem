@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>机票预订系统</title>
@@ -164,442 +166,52 @@
     <!--按照价格排序-->
     <div class="search_result_by_price" id="result_by_price">
 
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
+        <c:if test="${flglis.size()>0}">
+            <c:forEach items="${flglis}" var="fl">
+                <div class="one_line">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <p class="flight_name">${fl.flname}</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p style="padding: 10px">
+                                <span style="font-size: xx-large">${fl.leavetime}</span>
+                                <br>
+                                    ${fl.leaveairport}
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p style="padding: 10px">
+                                <span style="font-size: xx-large">${fl.arrivetime}</span>
+                                <br>
+                                    ${fl.arriveairport}
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p style="padding: 22px 0;">
                             <span style="position:absolute;margin-top: 10px;margin-left: -50px;
                                     font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
+                                <span style="position:absolute;margin-top: 26px;margin-left: -47px;
+                                    font-size:smaller;color: gray">${fl.votes}/100</span>
+                                <sup>￥</sup>
+                                <span style="color: #ff6600;font-size: xx-large;">${fl.fares}0</span>
+                                <sub>起</sub>&nbsp;
+                                <a href="" class="btn btn-sm btn-warning">订票</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+            </c:forEach>
+        </c:if>
+        <c:if test="${flglis.size()<=0}">
+            <div class="alert" id="search_failure" style="margin-top: 20px; background-color:white;">
+                <h1>尊敬的旅客</h1>
+                <p style="margin-left: 50px">
+                    很抱歉，我们目前没有开通这趟航班，请尝试选择其他航班，祝您旅途愉快！
+                </p>
             </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name">海南航空HU7915</p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">07:55</span>
-                        <br>
-                        黄花国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large">09:55</span>
-                        <br>
-                        浦东国际机场T2
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">67/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">890.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--如果没有查找到-->
-    <div class="alert" id="search_failure" style="margin-top: 20px; background-color:white;">
-        <h1>尊敬的旅客</h1>
-        <p style="margin-left: 50px">
-            很抱歉，我们目前没有开通这趟航班，请尝试选择其他航班，祝您旅途愉快！
-        </p>
-    </div>
-
-    <!--按照起飞时间排序-->
-    <div class="search_result_by_ltime" id="result_by_ltime" style="display: none">
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name"></p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large"></span>
-                        <br>
-
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large"></span>
-                        <br>
-
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;"></span>
-                        <sub>起</sub>&nbsp;
-                        <a href="{% url 'booksystem:book_ticket' flight.id %}" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-    <!--按照到达时间排序-->
-    <div class="search_result_by_atime" id="result_by_atime" style="display: none">
-
-        <div class="one_line">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                    <p class="flight_name"></p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large"></span>
-                        <br>
-
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 10px">
-                        <span style="font-size: xx-large"></span>
-                        <br>
-
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <p style="padding: 22px 0;">
-                            <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                        <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">50/100</span>
-                        <sup>￥</sup>
-                        <span style="color: #ff6600;font-size: xx-large;">780.00</span>
-                        <sub>起</sub>&nbsp;
-                        <a href="" class="btn btn-sm btn-warning">订票</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        </c:if>
     </div>
 </div>
 </body>
