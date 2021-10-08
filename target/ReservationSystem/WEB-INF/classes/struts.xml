@@ -5,15 +5,33 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <package name="helloworld" extends="struts-default,json-default" namespace="/">
+
+
+
+        <!--配件拦截器-->
+        <interceptors>
+            <interceptor name="loginIntercept" class="com.intercept.LoginIntercept"></interceptor>
+        </interceptors>
+
+        
+        
         <!--首页搜索-->
         <action name="logac" class="com.action.SearchAllAction">
-            <result>/FrontDesk/result.jsp</result>
+            <result name="success">/FrontDesk/result.jsp</result>
+            <result name="error" >/FrontDesk/login.jsp</result>
         </action>
+
         <!--登录-->
-        <action name="login" class="com.action.LoginAction">
+        <action name="login" class="com.action.LoginAction" method="login">
+            <result name="error" >/FrontDesk/login.jsp</result>
             <result name="success">/FrontDesk/index.jsp</result>
-            <result name="error"></result>
         </action>
+
+        <!--退出-->
+        <action name="exit" class="com.action.LoginAction" method="exit">
+            <result>/FrontDesk/index.jsp</result>
+        </action>
+
         <!--注册-->
         <action name="register" class="com.action.RegisterAction">
             <result name="success"></result>
@@ -22,7 +40,10 @@
 
         <!--确认订单-->
         <action name="BookTicket" class="com.action.UserBookTicket">
-            <result>/FrontDesk/confirmbook.jsp</result>
+            <interceptor-ref name="loginIntercept"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/FrontDesk/confirmbook.jsp</result>
+            <result name="error" >/FrontDesk/login.jsp</result>
         </action>
     </package>
 </struts>

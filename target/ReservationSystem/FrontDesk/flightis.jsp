@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>机票预订系统</title>
@@ -20,31 +21,37 @@
     <div class="container-fluid">
         <!-- Header -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="">CSU Airlines</a>
+            <a class="navbar-brand" href="/ReservationSystem/FrontDesk/index.jsp">CSU Airlines</a>
         </div>
         <!-- Items -->
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="">
+                <a href="/ReservationSystem/FrontDesk/index.jsp">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp; 购票
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/ReservationSystem/FrontDesk/login.jsp">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; 个人中心
                 </a>
             </li>
-            <li>
-
-                <a href="">
-                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; 登录
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; 退出
-                </a>
-            </li>
+            <%
+                Object obj = request.getSession().getAttribute("userSession");
+            %>
+            <c:if test="<%=obj==null %>">
+                <li>
+                    <a href="/ReservationSystem/FrontDesk/login.jsp">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; 登录
+                    </a>
+                </li>
+            </c:if>
+            <c:if test="<%=obj!=null %>">
+                <li>
+                    <a href="/ReservationSystem/FrontDesk/exit">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; 退出
+                    </a>
+                </li>
+            </c:if>
         </ul>
     </div>
 </nav>

@@ -3,6 +3,7 @@ package com.action;
 import cn.hutool.core.date.DateUtil;
 import com.dao.SearchTicketDao;
 import com.entity.FlightInfo;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tools.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
@@ -33,6 +34,7 @@ public class SearchAllAction extends ActionSupport {
      * 出行时间
      */
     String arrtime;
+
 
     public String getLeavecity() {
         return leavecity;
@@ -111,6 +113,7 @@ public class SearchAllAction extends ActionSupport {
             }
         }
         session.close();
+
         return SUCCESS;
     }
 

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.opensymphony.xwork2.ActionContext" %><%--
   Created by IntelliJ IDEA.
   User: 羡羡
   Date: 2021/10/6
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>机票预订系统</title>
@@ -74,18 +75,25 @@
 <nav class="navbar nav-divider">
     <div class="container-fluid" style="margin-top: 10px">
         <div class="navbar-header">
-            <a class="navbar-brand" href="" style="color: ghostwhite; font-size: 50px;">CSU Airlines</a>
+            <a class="navbar-brand" href="/ReservationSystem/FrontDesk/index.jsp" style="color: ghostwhite; font-size: 50px;">CSU Airlines</a>
         </div>
-        <div class="navbar-right">
-            <a class="navbar-brand" href="/ReservationSystem/FrontDesk/login.jsp" style="color: ghostwhite; font-size: 24px;">LOG IN</a>
-        </div>
+        <%
+            Object obj = request.getSession().getAttribute("userSession");
+        %>
+
+        <c:if test="<%=obj==null %>">
+            <div class="navbar-right">
+                <a class="navbar-brand" href="/ReservationSystem/FrontDesk/login.jsp" style="color: ghostwhite; font-size: 24px;">LOG IN</a>
+            </div>
+        </c:if>
+
     </div>
 </nav>
 
 <div class="container-fluid" style="position:absolute;margin-top:10%;width: 35%;left: 5%">
     <h1 style="color: white">Where are we flying now ?</h1>
     <br>
-    <form class="form-horizontal" onsubmit="return subtest();" action="logac" method="post" >
+    <form class="form-horizontal" onsubmit="return subtest();" action="/ReservationSystem/logac" method="post" >
         <div class="input-group">
             <label for="leave_city" class="input-group-addon">出发城市</label>
             <!--input必须要指定name-->
