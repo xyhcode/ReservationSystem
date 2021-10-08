@@ -55,7 +55,7 @@
                     <center>
                         <h1>登录账号</h1><br>
                     </center>
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="/ReservationSystem/login" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="control-label col-sm-6" for="id_username">
                                 Username:

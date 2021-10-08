@@ -9,9 +9,15 @@
         <action name="logac" class="com.action.SearchAllAction">
             <result>/FrontDesk/result.jsp</result>
         </action>
-        
-        <action name="BookTicket" class="com.action.UserBookTicket">
-            <result>/FrontDesk/confirmbook.jsp</result>
+        <!--登录-->
+        <action name="login" class="com.action.LoginAction">
+            <result name="success">/FrontDesk/index.jsp</result>
+            <result name="error"></result>
+        </action>
+        <!--注册-->
+        <action name="register" class="com.action.RegisterAction">
+            <result name="success"></result>
+            <result name="error"></result>
         </action>
     </package>
 </struts>

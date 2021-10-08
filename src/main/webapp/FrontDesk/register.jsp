@@ -57,7 +57,47 @@
                     <center>
                         <h1>注册账号</h1><br>
                     </center>
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="/ReservationSystem/register" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_username">
+                                Username:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_username" maxlength="10" name="usernameone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_password">
+                                Password:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_password" maxlength="10" name="passwordone" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_name">
+                                Name:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_name" maxlength="10" name="name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_phone">
+                                Phone:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_phone" maxlength="11" name="phone" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_card">
+                                Card:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="id_card" maxlength="18" name="card" type="text">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div align="center">
                                 <button type="submit" class="btn btn-success">Submit</button>
