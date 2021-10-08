@@ -9,5 +9,9 @@
         <action name="logac" class="com.action.SearchAllAction">
             <result>/FrontDesk/result.jsp</result>
         </action>
+        
+        <action name="BookTicket" class="com.action.UserBookTicket">
+            <result>/FrontDesk/confirmbook.jsp</result>
+        </action>
     </package>
 </struts>

@@ -9,13 +9,11 @@
 <html>
 <head>
     <title>机票预订系统</title>
-    <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
-    <script src="/ReservationSystem/JS/jquery.min.js"></script>
-    <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <%--layui css--%>
-    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css"  media="all">
-
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
 </head>
 <body style="background-color: #f1f1f1">
 <!--个人中心--->
@@ -52,20 +50,7 @@
     </div>
 </nav>
 <div class="container-fluid" style="margin-top: 20px">
-    <div class="alert" style="background-color: white;overflow: hidden"> <!--超出部分也是白色底-->
-        <h1>尊敬的旅客</h1>
-        <div id="info_body" style="margin-left: 50px;margin-right: 50px">
-            <div id="book_failure" >
-                <p style="color: red;font-size: large;font-weight: bold">
-                    该航班已无余票，请选择其他航班，祝您旅途愉快！
-                </p>
-            </div>
 
-
-
-
-        </div>
-    </div>
 </div>
 </body>
 <script src="/ReservationSystem/layui/layui.js" charset="utf-8"></script>

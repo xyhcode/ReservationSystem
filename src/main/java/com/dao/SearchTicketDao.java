@@ -16,4 +16,9 @@ public interface SearchTicketDao {
     * @return
     */
    public List seall(FlightInfo fg);
+
+   /**
+    * 订票查询一个航班的信息
+    */
+   public List findoneflight(int flid);
 }

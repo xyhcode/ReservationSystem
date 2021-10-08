@@ -11,9 +11,9 @@
 <html>
 <head>
     <title>机票预订系统</title>
-    <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
-    <script src="/ReservationSystem/JS/jquery.min.js"></script>
-    <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
     <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
     <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
@@ -234,18 +234,17 @@
                         <div class="col-sm-3">
                             <p style="padding: 22px 0;">
                             <span style="position:absolute;margin-top: 10px;margin-left: -50px;
-                                    font-size:smaller;color: gray;">满座率</span>
-                                <span style="position:absolute;margin-top: 26px;margin-left: -47px;
-                                    font-size:smaller;color: gray">${fl.votes}/100</span>
+                                    font-size:smaller;color: gray;">准点率</span>
+                                <span style="position:absolute;margin-top: 26px;margin-left: -42px;
+                                    font-size:smaller;color: gray">${fl.punctuality}</span>
                                 <sup>￥</sup>
                                 <span style="color: #ff6600;font-size: xx-large;">${fl.fares}0</span>
                                 <sub>起</sub>&nbsp;
-                                <a href="" class="btn btn-sm btn-warning">订票</a>
+                                <a href="/ReservationSystem/BookTicket?fid=${fl.flid}" class="btn btn-sm btn-warning">订票</a>
                             </p>
                         </div>
                     </div>
                 </div>
-
             </c:forEach>
         </c:if>
         <c:if test="${flglis.size()<=0}">

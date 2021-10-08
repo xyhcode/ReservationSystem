@@ -51,6 +51,10 @@ public class FlightInfo {
      * 票价
      */
     public double fares;
+    /**
+     * 准点率
+     */
+    public String punctuality;
 
     public int getFlid() {
         return flid;
@@ -140,10 +144,18 @@ public class FlightInfo {
         this.fares = fares;
     }
 
+    public String getPunctuality() {
+        return punctuality;
+    }
+
+    public void setPunctuality(String punctuality) {
+        this.punctuality = punctuality;
+    }
+
     public FlightInfo() {
     }
 
-    public FlightInfo(String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares) {
+    public FlightInfo(String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares, String punctuality) {
         this.flname = flname;
         this.departdate = departdate;
         this.leavecity = leavecity;
@@ -154,9 +166,10 @@ public class FlightInfo {
         this.arriveairport = arriveairport;
         this.votes = votes;
         this.fares = fares;
+        this.punctuality = punctuality;
     }
 
-    public FlightInfo(int flid, String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares) {
+    public FlightInfo(int flid, String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares, String punctuality) {
         this.flid = flid;
         this.flname = flname;
         this.departdate = departdate;
@@ -168,6 +181,7 @@ public class FlightInfo {
         this.arriveairport = arriveairport;
         this.votes = votes;
         this.fares = fares;
+        this.punctuality = punctuality;
     }
 
     @Override
@@ -184,6 +198,7 @@ public class FlightInfo {
                 ", arriveairport='" + arriveairport + '\'' +
                 ", votes=" + votes +
                 ", fares=" + fares +
+                ", punctuality='" + punctuality + '\'' +
                 '}';
     }
 }

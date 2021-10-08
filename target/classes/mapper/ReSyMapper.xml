@@ -6,4 +6,8 @@
     <select id="seall" resultType="com.entity.FlightInfo">
         select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate}
     </select>
+
+    <select id="findoneflight" resultType="com.entity.FlightInfo">
+        select * from flightinfo where flid=#{flid}
+    </select>
 </mapper>

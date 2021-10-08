@@ -110,6 +110,7 @@ public class SearchAllAction extends ActionSupport {
                 flglis.add(flg);
             }
         }
+        session.close();
         return SUCCESS;
     }
 
