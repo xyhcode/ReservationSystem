@@ -74,7 +74,9 @@ public class UserBookTicket extends ActionSupport {
         flinflis=se.findoneflight(fid);
         for(int i=0;i<flinflis.size();i++){
             FlightInfo flg= (FlightInfo) flinflis.get(i);
+            //得到航班的name
             fliname=flg.getFlname();
+            //得到航班的票数
             flpas=flg.getVotes();
         }
         session.close();
