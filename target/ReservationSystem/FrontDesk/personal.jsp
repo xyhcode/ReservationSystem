@@ -9,13 +9,13 @@
 <html>
 <head>
     <title>机票预订系统</title>
-    <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
-    <script src="/ReservationSystem/JS/jquery.min.js"></script>
-    <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
-
-    <%--layui css--%>
-    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css"  media="all">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
+    <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
+    <script src="/ReservationSystem/layui/layui.js"></script>
 </head>
 <body style="background-color: #f1f1f1">
 <!--个人中心--->
@@ -60,13 +60,12 @@
                     该航班已无余票，请选择其他航班，祝您旅途愉快！
                 </p>
             </div>
-
-
-
-
         </div>
+
+        hello
+        <span class="layui-btn" id="zc">注册</span>
+
     </div>
 </div>
 </body>
-<script src="/ReservationSystem/layui/layui.js" charset="utf-8"></script>
 </html>
