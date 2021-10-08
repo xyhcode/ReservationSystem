@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
     <script src="/ReservationSystem/JS/jquery.min.js"></script>
     <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
-
-    <%--layui css--%>
-    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css"  media="all">
-
 </head>
 <body style="background-color: #f1f1f1">
 <!--个人中心--->
@@ -60,13 +56,8 @@
                     该航班已无余票，请选择其他航班，祝您旅途愉快！
                 </p>
             </div>
-
-
-
-
         </div>
     </div>
 </div>
 </body>
-<script src="/ReservationSystem/layui/layui.js" charset="utf-8"></script>
 </html>
