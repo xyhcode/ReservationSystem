@@ -17,5 +17,7 @@
     </environments>
     <mappers>
         <mapper resource="mapper/ReSyMapper.xml"/>
+        <mapper resource="mapper/LoginMapper.xml"/>
+        <mapper resource="mapper/RegisterMapper.xml"/>
     </mappers>
 </configuration>
