@@ -9,9 +9,9 @@
 <html>
 <head>
     <title>机票预订系统</title>
-    <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
-    <script src="/ReservationSystem/JS/jquery.min.js"></script>
-    <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
 </head>
 <!--已经订过该航班--->

@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="/ReservationSystem/CSS/bootstrap.min.css">
     <script src="/ReservationSystem/JS/jquery.min.js"></script>
     <script src="/ReservationSystem/JS/bootstrap.min.js"></script>
+    <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
     <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
+    <script src="/ReservationSystem/layui/layui.js"></script>
     <style>
         .main {
             margin-left: 50px;
@@ -88,6 +91,49 @@
             font-weight: bold;
         }
     </style>
+    <script>
+        $(function (){
+            //时间
+            var da=new Date();
+            //得到月
+            var moth=da.getMonth()+1;
+            //得到年
+            var year =da.getFullYear();
+            //得到日
+            var day=da.getDate();
+
+            //判断moth是否大于10 否则加0
+            if (moth<10){
+                moth="0"+moth;
+            }
+            //判断day是否大于10 否则加0
+            if(day<10){
+                day="0"+day;
+            }
+            //设置离开时间的属性框的最小值 让时间框不能选择今天之前的
+            $("#leave_date").attr("min",year+"-"+moth+"-"+day);
+        })
+
+
+        function subtest(){
+            //得到离开城市
+            var lcity=$("#leave_city").val();
+            //得到到达城市
+            var arcity=$("#arrive_city").val();
+            //到达时间
+            var time=$("#leave_date").val();
+            //判断不能为空
+            if(lcity=="" || arcity=="" || time==""){
+                layer.msg('不能为空！', {
+                    offset: ['55px', '50%']
+                });
+                //不能提交
+                return false;
+            }
+            //可以提交
+            return true;
+        }
+    </script>
 </head>
 <body style="background-color: #f1f1f1">
 <!--index点击首页查询的航班结果--->
@@ -128,18 +174,18 @@
     <!--搜索框-->
     <div class="search_form">
         <div class="col-sm-12" style="margin-top: 20px">
-            <form action="" method="post">
+            <form method="post" onsubmit="return subtest();" action="logac">
                 <div class="col-sm-3">
                     <span class="ico_search_type ico_search_lcity"></span><br>
-                    <input class="my_input" type="text" id="leave_city" name="leave_city" placeholder="City">
+                    <input class="my_input" type="text" id="leave_city" name="leavecity" placeholder="City">
                 </div>
                 <div class="col-sm-3">
                     <span class="ico_search_type ico_search_acity"></span><br>
-                    <input class="my_input" type="text" id="arrive_city" name="arrive_city" placeholder="City">
+                    <input class="my_input" type="text" id="arrive_city" name="arricity" placeholder="City">
                 </div>
                 <div class="col-sm-3">
                     <span class="ico_search_type ico_search_ldate"></span><br>
-                    <input class="my_input" type="date" id="leave_date" name="leave_date" placeholder="Date"
+                    <input class="my_input" type="date" id="leave_date" name="arrtime" placeholder="Date"
                            value="">
                 </div>
                 <div class="col-sm-3">
@@ -154,14 +200,12 @@
     <!--标题行(标明4种排序方式)-->
     <div class="search_head" id="search_head">
         <div class="col-sm-12">
-            <button class="col-sm-3 btn btn-primary">航班信息</button>
-            <button class="col-sm-3 btn btn-success" onclick="search_by_ltime()">起飞时间</button>
-            <button class="col-sm-3 btn btn-danger" onclick="search_by_atime()">到达时间</button>
-            <button class="col-sm-3 btn btn-warning" onclick="search_by_price()">价格</button>
+            <button class="col-sm-3 btn btn-primary" disabled="disabled" style="opacity:1">航班信息</button>
+            <button class="col-sm-3 btn btn-success" disabled="disabled" style="opacity:1">起飞时间</button>
+            <button class="col-sm-3 btn btn-danger" disabled="disabled" style="opacity:1">到达时间</button>
+            <button class="col-sm-3 btn btn-warning" disabled="disabled" style="opacity:1">价格</button>
         </div>
     </div>
-
-
 
     <!--按照价格排序-->
     <div class="search_result_by_price" id="result_by_price">
