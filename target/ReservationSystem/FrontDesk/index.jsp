@@ -77,7 +77,7 @@
             <a class="navbar-brand" href="" style="color: ghostwhite; font-size: 50px;">CSU Airlines</a>
         </div>
         <div class="navbar-right">
-            <a class="navbar-brand" href="" style="color: ghostwhite; font-size: 24px;">LOG IN</a>
+            <a class="navbar-brand" href="/ReservationSystem/FrontDesk/login.jsp" style="color: ghostwhite; font-size: 24px;">LOG IN</a>
         </div>
     </div>
 </nav>
