@@ -26,21 +26,26 @@
     </style>
     <script>
         $(function (){
+            //时间
             var da=new Date();
+            //得到月
             var moth=da.getMonth()+1;
+            //得到年
             var year =da.getFullYear();
+            //得到日
             var day=da.getDate();
 
+            //判断moth是否大于10 否则加0
             if (moth<10){
                 moth="0"+moth;
             }
+            //判断day是否大于10 否则加0
             if(day<10){
                 day="0"+day;
             }
+            //设置离开时间的属性框的最小值 让时间框不能选择今天之前的
             $("#leave_date").attr("min",year+"-"+moth+"-"+day);
         })
-
-
 
 
         function subtest(){
@@ -55,8 +60,10 @@
                 layer.msg('不能为空！', {
                     offset: ['55px', '50%']
                 });
+                //不能提交
                 return false;
             }
+            //可以提交
             return true;
         }
     </script>

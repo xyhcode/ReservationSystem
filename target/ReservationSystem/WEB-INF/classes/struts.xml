@@ -5,6 +5,7 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <package name="helloworld" extends="struts-default,json-default" namespace="/">
+        <!--首页搜索-->
         <action name="logac" class="com.action.SearchAllAction">
             <result>/FrontDesk/result.jsp</result>
         </action>
