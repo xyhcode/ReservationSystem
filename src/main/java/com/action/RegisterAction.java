@@ -6,38 +6,55 @@
 package com.action;
 
 
-
 import com.dao.RegisterDao;
 import com.entity.UserInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tools.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.struts2.ServletActionContext;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
+
+/**
+ * @author 羡羡
+ */
 public class RegisterAction extends ActionSupport {
 
-    public RegisterAction() {
+    public String phone;
+    public String passwordone;
+
+    public String yzm;
+
+    public String getYzm() {
+        return yzm;
     }
 
-    public String register() throws Exception {
-        SqlSession session = GetSqlSession.getsSession();
-        RegisterDao dao = (RegisterDao)session.getMapper(RegisterDao.class);
+    public void setYzm(String yzm) {
+        this.yzm = yzm;
+    }
 
-        HttpServletRequest Request = ServletActionContext.getRequest();
-        String password = Request.getParameter("passwordone");
-        String name = Request.getParameter("name");
-        String phone = Request.getParameter("phone");
-        String card = Request.getParameter("card");
-        UserInfo userInfo = new UserInfo();
-        userInfo.setPassword(password);
-        userInfo.setName(name);
-        userInfo.setIdCard(card);
-        userInfo.setPhone(phone);
-        int n = dao.registeradd(userInfo);
-        session.commit();
-        session.close();
-        return n > 0 ? "success" : "error";
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPasswordone() {
+        return passwordone;
+    }
+
+    public void setPasswordone(String passwordone) {
+        this.passwordone = passwordone;
+    }
+
+    @Override
+    public String execute() throws IOException {
+        SqlSession session = GetSqlSession.getsSession();
+        RegisterDao re=session.getMapper(RegisterDao.class);
+        UserInfo usin=new UserInfo(phone,passwordone,null,phone, null);
+        int cg=re.useradd(usin);
+        return SUCCESS;
     }
 }

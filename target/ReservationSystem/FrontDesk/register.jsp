@@ -14,6 +14,92 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
+    <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
+    <script src="/ReservationSystem/layui/layui.js"></script>
+    <script>
+        //验证码状态
+        var tc=0;
+        //点击发送验证码
+        function gain(){
+            var h=$("#id_phone").val();
+            if(h==''){
+                layer.msg("电话不能为空！");
+            }else{
+                localStorage.setItem("iphone",h);
+                location.href="sendmsg?smsMob="+h+"";
+                localStorage.setItem("time",60);
+                layer.msg("发送成功！");
+            }
+        }
+
+        //倒计时
+        function clickQ(s){
+            var f=setInterval(function(){
+                document.getElementById("bt1").value=s;
+                document.getElementById("bt1").setAttribute("disabled","disabled");
+                if(s<=0){
+                    document.getElementById("bt1").value="获取验证码";
+                    document.getElementById("bt1").removeAttribute("disabled");
+                    clearInterval(f);
+                    tc=1;
+                    localStorage.removeItem("time");
+                    localStorage.removeItem("iphone");
+                }
+                localStorage.setItem("time",s);
+                s--;
+            },1000);
+        }
+
+        $(function () {
+            var hu=localStorage.getItem("time");
+            var ip=localStorage.getItem("iphone");
+            if(hu>0 && ip>0){
+                $("#id_phone").val(ip);
+                clickQ(hu);
+            }
+        })
+
+
+        function  subtest(){
+            //电话
+            var dh=$("#id_phone").val();
+            //验证码
+            var yzm=$("#yzm").val();
+            //得到电话
+            var iph=localStorage.getItem("iphone");
+            //判断电话
+            if(dh!=iph){
+                layer.msg("电话与发送验证码电话不一致！");
+                return false;
+            }else{
+                //判断是否过期
+                if(tc==1){
+                    layer.msg("验证码已过期！");
+                    $("#yzm").val("");
+                    return false;
+                }else{
+                    //得到生成的验证码
+                    var sj=$("#sjyzm").val();
+                    //判断验证码是否一致
+                    if(sj!=yzm){
+                        layer.msg("验证码不正确！");
+                        return false;
+                    }else{
+                        layer.msg("注册成功！");
+                        localStorage.setItem("time",0);
+                        localStorage.removeItem("time");
+                        localStorage.removeItem("iphone");
+                        return true;
+                    }
+                }
+            }
+            localStorage.setItem("time",0);
+            localStorage.removeItem("time");
+            localStorage.removeItem("iphone");
+            return true;
+        }
+    </script>
 </head>
 <body style="background-color: #f1f1f1">
 <!--注册--->
@@ -56,7 +142,7 @@
     </div>
 </nav>
 <div class="container-fluid" style="margin-top: 20px">
-
+    <input id="sjyzm" type="hidden" value="${numbercode}"/>
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default">
@@ -64,13 +150,22 @@
                     <center>
                         <h1>注册账号</h1><br>
                     </center>
-                    <form class="form-horizontal" role="form" action="/ReservationSystem/register" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="/ReservationSystem/regis" method="post"  onsubmit="return subtest();">
                         <div class="form-group">
-                            <label class="control-label col-sm-6" for="id_username">
-                                Username:
+                            <label class="control-label col-sm-6" for="id_phone">
+                                Phone:
                             </label>
                             <div class="col-sm-6">
-                                <input id="id_username" maxlength="10" name="usernameone" type="text">
+                                <input id="id_phone" maxlength="11" name="phone" type="text" required>
+                                <input  type="button" id="bt1" value="获取验证码" onclick="gain()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-6" for="id_phone">
+                                VerificationCode:
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="yzm" maxlength="11" name="yzm" type="text" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -78,31 +173,7 @@
                                 Password:
                             </label>
                             <div class="col-sm-6">
-                                <input id="id_password" maxlength="10" name="passwordone" type="password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="id_name">
-                                Name:
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="id_name" maxlength="10" name="name" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="id_phone">
-                                Phone:
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="id_phone" maxlength="11" name="phone" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-6" for="id_card">
-                                Card:
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="id_card" maxlength="18" name="card" type="text">
+                                <input id="id_password" maxlength="10" name="passwordone" type="password" required>
                             </div>
                         </div>
                         <div class="form-group">
