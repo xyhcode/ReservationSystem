@@ -7,12 +7,10 @@
     <package name="helloworld" extends="struts-default,json-default" namespace="/">
 
 
-
-        <!--配件拦截器-->
+        <!--拦截器-->
         <interceptors>
             <interceptor name="loginIntercept" class="com.intercept.LoginIntercept"></interceptor>
         </interceptors>
-
         
         
         <!--首页搜索-->
@@ -44,5 +42,15 @@
             <result name="success">/FrontDesk/confirmbook.jsp</result>
             <result name="error" >/FrontDesk/login.jsp</result>
         </action>
+
+        <!--订单查询-->
+        <action name="view" class="com.action.OrderInfoAction" method="view">
+            <interceptor-ref name="loginIntercept"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/FrontDesk/orderinfo.jsp</result>
+            <result name="error" >/FrontDesk/login.jsp</result>
+        </action>
+
+
     </package>
 </struts>

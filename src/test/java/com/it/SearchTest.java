@@ -4,6 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import com.dao.SearchTicketDao;
 import com.entity.FlightInfo;
 import com.entity.OrderInfo;
+import com.entity.UsinfoFlig;
 import com.tools.GetSqlSession;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -67,5 +68,6 @@ public class SearchTest {
     public  void tes01(){
         List lis=her.seorderflig(2);
         System.out.println(lis);
+
     }
 }

@@ -76,66 +76,20 @@
         </tr>
         </thead>
         <tbody style="text-align: center">
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
-        <tr>
-            <td>海南航空MU5456</td>
-            <td>长沙黄花国际机场T2</td>
-            <td>上海浦东国际机场T2</td>
-            <td>April 2, 2021, 8:10 a.m</td>
-            <td>April 2, 2021, 10:10 a.m</td>
-            <td>￥500 &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-            </td>
-        </tr>
+
+        <c:forEach items="${lis}" var="info">
+            <tr>
+                <td>${info.flname}</td>
+                <td>${info.leaveairport}</td>
+                <td>${info.arriveairport}</td>
+                <td>${info.departdate} ${info.leavetime}</td>
+                <td>${info.departdate} ${info.arrivetime}</td>
+                <td>￥${info.fares}
+                    <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
+                </td>
+            </tr>
+        </c:forEach>
+
         </tbody>
     </table>
 </div>
