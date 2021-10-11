@@ -11,10 +11,12 @@ import com.entity.UserInfo;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 
 import com.tools.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 羡羡
@@ -25,6 +27,7 @@ public class LoginAction extends ActionSupport {
     String account;
 //    密码
     String password;
+//    用户数据
 
     public String getAccount() {
         return account;
@@ -52,12 +55,15 @@ public class LoginAction extends ActionSupport {
         userInfo.setPassword(password);
         List l = dao.sign(userInfo);
 
-        /*设置用户session*/
-        ActionContext.getContext().getSession().put("userSession",l);
+        System.out.println(l);
 
         if(l.size() == 0){
             return "error";
         }
+
+        /*设置用户session*/
+        ActionContext.getContext().getSession().put("userSession",l);
+
 
         return SUCCESS;
     }

@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
     <link rel="icon" href="/ReservationSystem/images/pane2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
+    <script src="/ReservationSystem/layui/layui.js"></script>
 </head>
 <body style="background-color: #f1f1f1">
 <nav class="nav navbar-inverse">
@@ -81,17 +84,31 @@
                         </div>
                         <div class="form-group">
                             <div align="center">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" onclick="denl()" class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="panel-footer" align="center">
-                    Don't have an account? <a href="/ReservationSystem/FrontDesk/register.jsp">Click here</a> to register.
+                    Don't have an account? <a style="color:#008FCD;" href="/ReservationSystem/FrontDesk/register.jsp">Click here</a> to register.
                 </div>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script>
+
+
+    function denl(){
+        if(${obj.size()<=0}){
+            layer.msg('登录失败！', {
+                offset: ['55px', '50%']
+            });
+        }
+    }
+
+
+
+</script>
 </html>
