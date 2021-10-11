@@ -4,10 +4,43 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SearchTicketDao">
     <select id="seall" resultType="com.entity.FlightInfo">
-        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate}
+        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate} order by leavetime
     </select>
 
     <select id="findoneflight" resultType="com.entity.FlightInfo">
         select * from flightinfo where flid=#{flid}
     </select>
+
+    <select id="seuserorderinfo" resultType="com.entity.OrderInfo">
+        select * from orderinfo where userid=#{userid} and fligid=#{fligid}
+    </select>
+
+    <resultMap id="usalflig" type="com.entity.UsinfoFlig">
+        <id property="orid" column="orid"/>
+        <result property="userid" column="userid"/>
+        <result property="fligid" column="fligid"/>
+        <result property="amt" column="amt"/>
+        <result property="ordernumber" column="ordernumber"/>
+        <result property="transactionno" column="transactionno"/>
+        <result property="paytime" column="paytime"/>
+        <collection property="flg" ofType="com.entity.FlightInfo">
+            <id property="flid" column="flid"/>
+            <result property="flname" column="flname"/>
+            <result property="departdate" column="departdate"/>
+            <result property="leavecity" column="leavecity"/>
+            <result property="leavetime" column="leavetime"/>
+            <result property="leaveairport" column="leaveairport"/>
+            <result property="arrivecity" column="arrivecity"/>
+            <result property="arrivetime" column="arrivetime"/>
+            <result property="arriveairport" column="arriveairport"/>
+            <result property="votes" column="votes"/>
+            <result property="fares" column="fares"/>
+            <result property="punctuality" column="punctuality"/>
+        </collection>
+    </resultMap>
+
+    <select id="seorderflig" resultMap="usalflig">
+        select * from orderinfo as a inner join  flightinfo as b on a.fligid=b.flid where a.userid=#{userid};
+    </select>
+
 </mapper>

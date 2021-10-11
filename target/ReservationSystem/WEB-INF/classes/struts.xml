@@ -26,7 +26,6 @@
             <result name="error" >/FrontDesk/login.jsp</result>
             <result name="success">/FrontDesk/index.jsp</result>
         </action>
-
         <!--退出-->
         <action name="exit" class="com.action.LoginAction" method="exit">
             <result>/FrontDesk/index.jsp</result>

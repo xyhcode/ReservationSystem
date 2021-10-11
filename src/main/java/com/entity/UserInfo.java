@@ -24,6 +24,7 @@ public class UserInfo {
         this.idCard = idCard;
     }
 
+    @Override
     public String toString() {
         return "\nUserInfo{usId=" + this.usId + ", account='" + this.account + '\'' + ", password='" + this.password + '\'' + ", name='" + this.name + '\'' + ", phone='" + this.phone + '\'' + ", idCard='" + this.idCard + '\'' + '}';
     }

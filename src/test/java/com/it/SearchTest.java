@@ -3,6 +3,7 @@ package com.it;
 import cn.hutool.core.date.DateUtil;
 import com.dao.SearchTicketDao;
 import com.entity.FlightInfo;
+import com.entity.OrderInfo;
 import com.tools.GetSqlSession;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -45,6 +46,26 @@ public class SearchTest {
         fh.setArrivecity("上海");
         fh.setDepartdate(date);
         List lis=her.seall(fh);
+        System.out.println(lis);
+    }
+
+
+
+
+    @Test
+    public void atest(){
+        OrderInfo or=new OrderInfo();
+        or.setUserid(2);
+        or.setFligid(15);
+        List lis=her.seuserorderinfo(or);
+        System.out.println(lis);
+    }
+
+
+
+    @Test
+    public  void tes01(){
+        List lis=her.seorderflig(2);
         System.out.println(lis);
     }
 }

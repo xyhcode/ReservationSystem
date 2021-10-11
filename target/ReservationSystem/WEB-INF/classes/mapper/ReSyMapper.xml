@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SearchTicketDao">
     <select id="seall" resultType="com.entity.FlightInfo">
-        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate}
+        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate} order by leavetime
     </select>
 
     <select id="findoneflight" resultType="com.entity.FlightInfo">
         select * from flightinfo where flid=#{flid}
     </select>
+
+    <select id="seuserorderinfo" resultType="com.entity.OrderInfo">
+        select * from orderinfo where userid=#{userid} and fligid=#{fligid}
+    </select>
+    
 </mapper>
