@@ -7,10 +7,12 @@
     <package name="helloworld" extends="struts-default,json-default" namespace="/">
 
 
-        <!--拦截器-->
+
+        <!--配件拦截器-->
         <interceptors>
             <interceptor name="loginIntercept" class="com.intercept.LoginIntercept"></interceptor>
         </interceptors>
+
         
         
         <!--首页搜索-->
@@ -30,9 +32,8 @@
         </action>
 
         <!--注册-->
-        <action name="register" class="com.action.RegisterAction">
-            <result name="success"></result>
-            <result name="error"></result>
+        <action name="regis" class="com.action.RegisterAction">
+            <result>/FrontDesk/regis.jsp</result>
         </action>
 
         <!--确认订单-->
@@ -50,7 +51,5 @@
             <result name="success">/FrontDesk/orderinfo.jsp</result>
             <result name="error" >/FrontDesk/login.jsp</result>
         </action>
-
-
     </package>
 </struts>
