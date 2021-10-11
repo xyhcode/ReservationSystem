@@ -39,7 +39,7 @@
             </li>
             <li>
                 <a href="/ReservationSystem/FrontDesk/login.jsp">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; 个人中心
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; 我的订单
                 </a>
             </li>
             <%
