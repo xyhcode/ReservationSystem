@@ -77,15 +77,18 @@
         </thead>
         <tbody style="text-align: center">
 
-        <c:forEach items="${lis}" var="info">
+        <c:forEach items="${orlis}" var="info">
             <tr>
                 <td>${info.flname}</td>
                 <td>${info.leaveairport}</td>
                 <td>${info.arriveairport}</td>
                 <td>${info.departdate} ${info.leavetime}</td>
                 <td>${info.departdate} ${info.arrivetime}</td>
+
                 <td>￥${info.fares}
-                    <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
+                    <c:if test="${info.departdate.getTime()>da.getTime()}">
+                        <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
+                    </c:if>
                 </td>
             </tr>
         </c:forEach>

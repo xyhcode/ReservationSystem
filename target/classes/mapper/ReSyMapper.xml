@@ -39,7 +39,6 @@
         </collection>
     </resultMap>
     <select id="seorderflig" resultMap="usalflig">
-        select * from orderinfo as a inner join  flightinfo as b on a.fligid=b.flid where a.userid=#{userid};
+        select * from orderinfo as a inner join  flightinfo as b on a.fligid=b.flid where a.userid=#{userid} order by b.departdate desc;
     </select>
-
 </mapper>

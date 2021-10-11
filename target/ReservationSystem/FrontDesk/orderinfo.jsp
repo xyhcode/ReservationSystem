@@ -77,15 +77,28 @@
         </thead>
         <tbody style="text-align: center">
 
-        <c:forEach items="${lis}" var="info">
+        <c:forEach items="${orlis}" var="info">
             <tr>
                 <td>${info.flname}</td>
                 <td>${info.leaveairport}</td>
                 <td>${info.arriveairport}</td>
                 <td>${info.departdate} ${info.leavetime}</td>
                 <td>${info.departdate} ${info.arrivetime}</td>
+
                 <td>￥${info.fares}
-                    <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
+                    <c:if test="${info.departdate.getTime()>da.getTime()}">
+                        <form action="/PayTreasureToPayBack/ConfigServlet/ARefund" method="post" target="_blank">
+                            <input id="WIDTRout_trade_no" name='WIDTRout_trade_no' value="+obj.ordernumber+" type='hidden' />
+                            <input id='WIDTRtrade_no' name='WIDTRtrade_no' value="+obj.transactionno+" type='hidden' />
+                            <input id='WIDTRrefund_amount' name='WIDTRrefund_amount' type='hidden' value="+obj.amt+" />
+                            <input id='WIDTRrefund_reason' name='WIDTRrefund_reason' value='赶不上飞机！' type='hidden' />
+                            <input id='WIDTRout_request_no' name='WIDTRout_request_no' type='hidden' />
+                            <p class='coupon'> <span>" + obj.amt + "</span>优惠券
+                                <button type='submit' class='layui-btn layui-btn-danger'>退票</button>
+                            </p>
+                        </form>
+                        <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
+                    </c:if>
                 </td>
             </tr>
         </c:forEach>

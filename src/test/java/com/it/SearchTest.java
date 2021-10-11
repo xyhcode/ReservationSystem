@@ -66,8 +66,28 @@ public class SearchTest {
 
     @Test
     public  void tes01(){
-        List lis=her.seorderflig(2);
-        System.out.println(lis);
+        List info = her.seorderflig(2);
 
+        for(int i=0;i<info.size();i++){
+            UsinfoFlig fo = (UsinfoFlig)info.get(i);
+            List list =  fo.flg;
+            FlightInfo fli = (FlightInfo)list.get(0);
+            System.out.println(fo);
+        }
+
+    }
+
+
+    @Test
+    public void tes1(){
+        Date da=new Date();
+        System.out.println(da);
+        String dateStr = "2021-10-11 17:44:23";
+        Date date = DateUtil.parse(dateStr);
+        if(da.getTime()>date.getTime()){
+            System.out.println("当前大");
+        }else{
+            System.out.println("2");
+        }
     }
 }
