@@ -89,14 +89,26 @@
                     <c:choose>
                         <c:when test="${info.departdate.getTime()>da.getTime() && info.transactionno!=''}">
                             ￥${info.fares}
-                            <form action="/ReservationSystem/refun" method="post" target="_blank" style="display: inline">
+                            <%--<form action="/ReservationSystem/refun" method="post" target="_blank" style="display: inline">
                                 <input type="hidden" name="WIDTRout_trade_no" value="${info.ordernumber}" />
                                 <input type="hidden" name="WIDTRtrade_no" value="${info.transactionno}"/>
                                 <input type="hidden" name="WIDTRrefund_amount" value="${info.amt}"/>
                                 <input type="hidden" name="WIDTRrefund_reason" value="赶不上飞机！"/>
                                 <input type="hidden" name="WIDTRout_request_no" />
                                 <button class="btn btn-sm btn-danger" type="submit">退票</button>
+                            </form>--%>
+                            <form action="/ReservationSystem/norefun" method="post" target="_blank" style="display: inline">
+                                <input type="hidden" name="hbname" value="${info.flname}" />
+                                <input type="hidden" name="hbid" value="${info.orid}"/>
+                                <input type="hidden" name="fjid" value="${info.flid}"/>
+                                <input type="hidden" name="WIDTRrefund_amount" value="${info.amt}"/>
+                                <input type="hidden" name="yhid" value="${info.userid}"/>
+                                <button class="btn btn-sm btn-danger" type="submit">退票</button>
                             </form>
+                        </c:when>
+                        <c:when test="${info.transactionno=='' && info.ordernumber==''}">
+                            ￥${info.fares}
+                            <span class="btn btn-sm btn-danger">已退票</span>
                         </c:when>
                         <c:otherwise>
                             ￥${info.fares}

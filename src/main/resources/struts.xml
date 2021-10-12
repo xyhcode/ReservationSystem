@@ -52,7 +52,7 @@
             <result name="error" >/FrontDesk/login.jsp</result>
         </action>
 
-        <!--退款-->
+        <!--支付宝退款-->
         <action name="refun" class="com.action.RefundAction">
             <result>/FrontDesk/orderinfo.jsp</result>
         </action>
@@ -65,6 +65,11 @@
         <!--发送验证码-->
         <action name="sendmsg" class="com.action.TextMessagAction">
             <result>/FrontDesk/register.jsp</result>
+        </action>
+
+        <!--退款-->
+        <action name="norefun" class="com.action.RefundActionNo">
+            <result type="chain">view</result>
         </action>
     </package>
 </struts>

@@ -60,10 +60,10 @@
         <h1>尊敬的旅客</h1>
         <div id="info_body" style="margin-left: 50px;margin-right: 50px">
             <p>
-                您选择了 <strong style="font-size: large">南方航空HO1124</strong> 次航班，
+                您选择了 <strong style="font-size: large">${hbname}</strong> 次航班，
                 该航班还有余票
                 <strong id="remain_seats"
-                        style="font-size: xx-large;color: #ff6600;font-style: italic">98</strong>
+                        style="font-size: xx-large;color: #ff6600;font-style: italic">${punumber}</strong>
                 张。
             </p>
             <table class="table table-striped table-bordered">

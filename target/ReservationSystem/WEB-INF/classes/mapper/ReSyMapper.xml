@@ -67,4 +67,18 @@
         </set>
         where flid=#{flid}
     </update>
+    
+    <update id="uporder">
+        update orderinfo set userid=#{userid},fligid=#{fligid},amt=#{amt},ordernumber=#{ordernumber},transactionno=#{transactionno},paytime=#{paytime} where orid=#{orid};
+    </update>
+
+    <select id="seuser" resultType="com.entity.UserInfo">
+         select * from userinfo where usid=#{usid}
+    </select>
+
+
+    <select id="seorder" resultType="com.entity.OrderInfo">
+        select * from orderinfo where orid=#{orid}
+    </select>
+
 </mapper>

@@ -55,8 +55,29 @@ public interface SearchTicketDao {
 
    /**
     * 修该航班信息
-    * @param or
+    * @param fl
     * @return
     */
    public int UpFliginfo(FlightInfo fl);
+
+   /**
+    * 修改订单
+    * @param or
+    * @return
+    */
+   public int uporder(OrderInfo or);
+
+   /**
+    * 查询用户信息
+    * @param usid
+    * @return
+    */
+   public List seuser(int usid);
+
+   /**
+    * 查询指定订单
+    * @param orid
+    * @return
+    */
+   public List seorder(int orid);
 }
