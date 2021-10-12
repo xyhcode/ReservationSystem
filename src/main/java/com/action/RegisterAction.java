@@ -19,10 +19,17 @@ import java.io.IOException;
  * @author 羡羡
  */
 public class RegisterAction extends ActionSupport {
-
+    /**
+     * 电话
+     */
     public String phone;
+    /**
+     * 密码
+     */
     public String passwordone;
-
+    /**
+     * 验证码
+     */
     public String yzm;
 
     public String getYzm() {
@@ -53,8 +60,11 @@ public class RegisterAction extends ActionSupport {
     public String execute() throws IOException {
         SqlSession session = GetSqlSession.getsSession();
         RegisterDao re=session.getMapper(RegisterDao.class);
+        //实例化
         UserInfo usin=new UserInfo(phone,passwordone,null,phone, null);
+        //执行添加数据
         int cg=re.useradd(usin);
+        //提交
         session.commit();
         session.close();
         return SUCCESS;

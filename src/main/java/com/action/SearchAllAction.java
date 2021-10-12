@@ -113,7 +113,6 @@ public class SearchAllAction extends ActionSupport {
             }
         }
         session.close();
-
         return SUCCESS;
     }
 

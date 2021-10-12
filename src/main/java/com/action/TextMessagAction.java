@@ -14,14 +14,25 @@ import java.util.Random;
  * 短信发送
  */
 public class TextMessagAction extends ActionSupport {
+    /**
+     * 账号
+     */
     public String Uid = "林沐xyh";
-    //接口安全秘钥
+    /**
+     * 接口安全秘钥
+     */
     public String Key = "xyh2730023435";
-    //电话
+    /**
+     * 电话
+     */
     public String smsMob;
-    //短信内容
+    /**
+     * 短信内容
+     */
     public String smsText;
-    //发送的数字
+    /**
+     * 数字验证码
+     */
     public int numbercode;
 
     public int getNumbercode() {

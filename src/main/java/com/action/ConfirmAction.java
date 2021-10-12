@@ -19,9 +19,13 @@ import java.util.Random;
  * @author 羡羡
  */
 public class ConfirmAction extends ActionSupport {
-
+    /**
+     * 航班name
+     */
     public String hbname;
-
+    /**
+     * 剩余票数
+     */
     public int punumber;
 
     public String getHbname() {
@@ -50,8 +54,17 @@ public class ConfirmAction extends ActionSupport {
         this.flis = flis;
     }
 
+    /**
+     * 订单号
+     */
     public String WIDout_trade_no;
+    /**
+     * 金额
+     */
     public double WIDtotal_amount;
+    /**
+     * 航班的ID
+     */
     public int hbid;
 
     public String getWIDout_trade_no() {
