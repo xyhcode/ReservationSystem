@@ -33,7 +33,7 @@
 
         <!--注册-->
         <action name="regis" class="com.action.RegisterAction">
-            <result>/FrontDesk/regis.jsp</result>
+            <result>/FrontDesk/login.jsp</result>
         </action>
 
         <!--确认订单-->
@@ -50,6 +50,21 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
             <result name="success">/FrontDesk/orderinfo.jsp</result>
             <result name="error" >/FrontDesk/login.jsp</result>
+        </action>
+
+        <!--退款-->
+        <action name="refun" class="com.action.RefundAction">
+            <result>/FrontDesk/orderinfo.jsp</result>
+        </action>
+
+        <!--确认订票-->
+        <action name="comfif" class="com.action.ConfirmAction">
+            <result>/FrontDesk/rescess.jsp</result>
+        </action>
+
+        <!--发送验证码-->
+        <action name="sendmsg" class="com.action.TextMessagAction">
+            <result>/FrontDesk/register.jsp</result>
         </action>
     </package>
 </struts>

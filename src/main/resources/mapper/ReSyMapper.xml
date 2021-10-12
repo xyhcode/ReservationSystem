@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.SearchTicketDao">
     <select id="seall" resultType="com.entity.FlightInfo">
-        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate >=#{departdate} order by leavetime
+        select * from flightinfo where leavecity=#{leavecity} and arrivecity=#{arrivecity} and departdate =#{departdate} order by leavetime
     </select>
 
     <select id="findoneflight" resultType="com.entity.FlightInfo">
@@ -41,4 +41,30 @@
     <select id="seorderflig" resultMap="usalflig">
         select * from orderinfo as a inner join  flightinfo as b on a.fligid=b.flid where a.userid=#{userid} order by b.departdate desc;
     </select>
+    
+    <insert id="Orderadd" parameterType="com.entity.OrderInfo">
+        insert into orderinfo(userid,fligid,amt,ordernumber,transactionno,paytime) value(#{userid},#{fligid},#{amt},#{ordernumber},#{transactionno},#{paytime})
+    </insert>
+
+    <select id="Fliinfo" resultType="com.entity.FlightInfo">
+        select * from flightinfo where flid=#{flid};
+    </select>
+
+    <update id="UpFliginfo">
+        update flightinfo
+        <set>
+            <if test="flname!=null">flname=#{flname},</if>
+            <if test="departdate!=null">departdate=#{departdate},</if>
+            <if test="leavecity!=null">leavecity=#{leavecity},</if>
+            <if test="leavetime!=null">leavetime=#{leavetime},</if>
+            <if test="leaveairport!=null">leaveairport=#{leaveairport},</if>
+            <if test="arrivecity!=null">arrivecity=#{arrivecity},</if>
+            <if test="arrivetime!=null">arrivetime=#{arrivetime},</if>
+            <if test="arriveairport!=null">arriveairport=#{arriveairport},</if>
+            <if test="votes!=null">votes=#{votes},</if>
+            <if test="fares!=null">fares=#{fares},</if>
+            <if test="punctuality!=null">punctuality=#{punctuality},</if>
+        </set>
+        where flid=#{flid}
+    </update>
 </mapper>

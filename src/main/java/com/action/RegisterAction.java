@@ -55,6 +55,8 @@ public class RegisterAction extends ActionSupport {
         RegisterDao re=session.getMapper(RegisterDao.class);
         UserInfo usin=new UserInfo(phone,passwordone,null,phone, null);
         int cg=re.useradd(usin);
+        session.commit();
+        session.close();
         return SUCCESS;
     }
 }

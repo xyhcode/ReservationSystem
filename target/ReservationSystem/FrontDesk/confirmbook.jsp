@@ -112,14 +112,21 @@
                     </table>
                     <div id="book_btns" align="right">
                         <!--div内容右对齐-->
-                        <form name=alipayment action="/ReservationSystem/FrontDesk/alipay.trade.page.pay.jsp" method=post
+                        <%--<form name=alipayment action="/ReservationSystem/FrontDesk/alipay.trade.page.pay.jsp" method=post
                               target="_blank" style="display: inline">
                             <input id="WIDout_trade_no" name="WIDout_trade_no" type="hidden" />
                             <input id="WIDsubject" name="WIDsubject" value="航空机票付款" type="hidden"/>
                             <input id="WIDtotal_amount" name="WIDtotal_amount" type="hidden"/>
                             <input id="WIDbody" name="WIDbody" type="hidden"/>
                             <input class="btn btn-primary" style="width: 80px" value="确认" type="submit">
+                        </form>--%>
+                        <form name=alipayment action="/ReservationSystem/comfif" method=post style="display: inline">
+                            <input id="WIDout_trade_no" name="WIDout_trade_no" type="hidden" />
+                            <input id="WIDtotal_amount" name="WIDtotal_amount" type="hidden"/>
+                            <input id="hid" name="hbid" type="hidden" value="${fid}">
+                            <input class="btn btn-primary" style="width: 80px" value="确认" type="submit">
                         </form>
+
                         <!--回退-->
                         <a href="javascript:history.back(-1)" class="btn btn-danger" style="width: 80px;">返回</a>
                     </div>
@@ -156,9 +163,6 @@
         document.getElementById("WIDout_trade_no").value =  sNow;
         //得到金额
         var nj=$("#flpaic").val();
-        //赋值描述
-        var paymsu=$("#flname").val();
-        document.getElementById("WIDbody").value = paymsu;
         //赋值给金额的文本框
         document.getElementById("WIDtotal_amount").value = nj;
     }

@@ -78,14 +78,17 @@
                 </tr>
                 </thead>
                 <tbody style="text-align: center">
-                <tr>
-                    <td>南方航空HO1124</td>
-                    <td>长沙黄花国际机场T2</td>
-                    <td>上海虹桥国际机场T3</td>
-                    <td>April 2, 2021,10:34 a.m</td>
-                    <td>April 2, 2021,11:34 a.m</td>
-                    <td>￥560</td>
-                </tr>
+
+                <c:forEach items="${flis}" var="lifoh">
+                    <tr>
+                        <td>${lifoh.flname}</td>
+                        <td>${lifoh.leaveairport}</td>
+                        <td>${lifoh.arriveairport}</td>
+                        <td>${lifoh.departdate} ${lifoh.leavetime}</td>
+                        <td>${lifoh.departdate} ${lifoh.arrivetime}</td>
+                        <td>￥${lifoh.fares}</td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <div id="book_success">

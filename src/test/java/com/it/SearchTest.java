@@ -90,4 +90,11 @@ public class SearchTest {
             System.out.println("2");
         }
     }
+
+
+    @Test
+    public void tes11(){
+        List lis=her.Fliinfo(17);
+        System.out.println(lis);
+    }
 }

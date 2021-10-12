@@ -38,4 +38,25 @@ public interface SearchTicketDao {
     * @return
     */
    public List seorderflig(int userid);
+
+   /**
+    * 订单添加
+    * @param oinfo
+    * @return
+    */
+   public int Orderadd(OrderInfo oinfo);
+
+   /**
+    * 查询指定的航班信息
+    * @param flid
+    * @return
+    */
+   public List Fliinfo(int flid);
+
+   /**
+    * 修该航班信息
+    * @param or
+    * @return
+    */
+   public int UpFliginfo(FlightInfo fl);
 }

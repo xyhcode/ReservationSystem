@@ -85,20 +85,23 @@
                 <td>${info.departdate} ${info.leavetime}</td>
                 <td>${info.departdate} ${info.arrivetime}</td>
 
-                <td>￥${info.fares}
-                    <c:if test="${info.departdate.getTime()>da.getTime()}">
-                        <form action="/PayTreasureToPayBack/ConfigServlet/ARefund" method="post" target="_blank">
-                            <input id="WIDTRout_trade_no" name='WIDTRout_trade_no' value="+obj.ordernumber+" type='hidden' />
-                            <input id='WIDTRtrade_no' name='WIDTRtrade_no' value="+obj.transactionno+" type='hidden' />
-                            <input id='WIDTRrefund_amount' name='WIDTRrefund_amount' type='hidden' value="+obj.amt+" />
-                            <input id='WIDTRrefund_reason' name='WIDTRrefund_reason' value='赶不上飞机！' type='hidden' />
-                            <input id='WIDTRout_request_no' name='WIDTRout_request_no' type='hidden' />
-                            <p class='coupon'> <span>" + obj.amt + "</span>优惠券
-                                <button type='submit' class='layui-btn layui-btn-danger'>退票</button>
-                            </p>
-                        </form>
-                        <button class="btn btn-sm btn-danger" onclick="refund()">退票</button>
-                    </c:if>
+                <td>
+                    <c:choose>
+                        <c:when test="${info.departdate.getTime()>da.getTime() && info.transactionno!=''}">
+                            ￥${info.fares}
+                            <form action="/ReservationSystem/refun" method="post" target="_blank" style="display: inline">
+                                <input type="hidden" name="WIDTRout_trade_no" value="${info.ordernumber}" />
+                                <input type="hidden" name="WIDTRtrade_no" value="${info.transactionno}"/>
+                                <input type="hidden" name="WIDTRrefund_amount" value="${info.amt}"/>
+                                <input type="hidden" name="WIDTRrefund_reason" value="赶不上飞机！"/>
+                                <input type="hidden" name="WIDTRout_request_no" />
+                                <button class="btn btn-sm btn-danger" type="submit">退票</button>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            ￥${info.fares}
+                        </c:otherwise>
+                    </c:choose>
                 </td>
             </tr>
         </c:forEach>

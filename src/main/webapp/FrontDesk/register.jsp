@@ -150,7 +150,7 @@
                     <center>
                         <h1>注册账号</h1><br>
                     </center>
-                    <form class="form-horizontal" role="form" action="/ReservationSystem/regis" method="post"  onsubmit="return subtest();">
+                    <form class="form-horizontal" role="form" action="regis" method="post"  onsubmit="return subtest();">
                         <div class="form-group">
                             <label class="control-label col-sm-6" for="id_phone">
                                 Phone:
