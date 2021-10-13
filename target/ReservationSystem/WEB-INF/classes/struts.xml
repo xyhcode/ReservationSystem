@@ -54,7 +54,7 @@
 
         <!--支付宝退款-->
         <action name="refun" class="com.action.RefundAction">
-            <result>/FrontDesk/orderinfo.jsp</result>
+            <result type="chain">view</result>
         </action>
 
         <!--确认订票-->
@@ -71,5 +71,17 @@
         <action name="norefun" class="com.action.RefundActionNo">
             <result type="chain">view</result>
         </action>
+
+        <!--后台登录-->
+        <action name="adminlog" class="com.action.AdminLogAction">
+            <result name="success">/Background/index.jsp</result>
+            <result name="error">/Background/Backgroundlogin.jsp</result>
+        </action>
+
+        <!--支付宝支付-->
+        <action name="paymoney" class="com.action.PayMoneyAction">
+            <result>/FrontDesk/rescess.jsp</result>
+        </action>
+
     </package>
 </struts>

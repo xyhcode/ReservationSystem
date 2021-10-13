@@ -97,4 +97,12 @@ public class SearchTest {
         List lis=her.Fliinfo(17);
         System.out.println(lis);
     }
+
+
+    @Test
+    public void tesr1(){
+        String cf="1789";
+        double dou=Integer.parseInt(cf);
+        System.out.println(dou);
+    }
 }

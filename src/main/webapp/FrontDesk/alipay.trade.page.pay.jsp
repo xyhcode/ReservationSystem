@@ -24,7 +24,17 @@
 	//订单名称，必填
 	String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"UTF-8");
 	//商品描述，可空
-	String body = new String(request.getParameter("WIDbody").getBytes("GBK"),"UTF-8");
+	String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
+	System.out.println("默认:"+body);
+
+	String body2=request.getParameter("WIDbody");
+	System.out.println("原生："+body2);
+
+	String hbid=request.getParameter("hbid");
+	System.out.println("航班ID："+hbid);
+
+	request.getSession().setAttribute("hbid",hbid);
+
 	alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"," 
 			+ "\"total_amount\":\""+ total_amount +"\"," 
 			+ "\"subject\":\""+ subject +"\"," 

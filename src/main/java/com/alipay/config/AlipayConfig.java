@@ -43,7 +43,7 @@ public class AlipayConfig {
     /**
      * 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
      */
-    public static String return_url = "http://localhost:8090/PayTreasureToPayBack/ConfigServlet/PaySuccessful";
+    public static String return_url = "http://localhost:8090/ReservationSystem/paymoney";
 
     /**
      * 签名方式

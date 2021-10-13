@@ -112,20 +112,21 @@
                     </table>
                     <div id="book_btns" align="right">
                         <!--div内容右对齐-->
-                        <%--<form name=alipayment action="/ReservationSystem/FrontDesk/alipay.trade.page.pay.jsp" method=post
-                              target="_blank" style="display: inline">
+                        <form name=alipayment action="/ReservationSystem/FrontDesk/alipay.trade.page.pay.jsp" method="post"
+                              style="display: inline" accept-charset="UTF-8">
                             <input id="WIDout_trade_no" name="WIDout_trade_no" type="hidden" />
-                            <input id="WIDsubject" name="WIDsubject" value="航空机票付款" type="hidden"/>
+                            <input id="WIDsubject" name="WIDsubject" value="Air ticket payment" type="hidden"/>
                             <input id="WIDtotal_amount" name="WIDtotal_amount" type="hidden"/>
                             <input id="WIDbody" name="WIDbody" type="hidden"/>
+                            <input id="hbid" name="hbid" type="hidden" value="${fid}"/>
                             <input class="btn btn-primary" style="width: 80px" value="确认" type="submit">
-                        </form>--%>
-                        <form name=alipayment action="/ReservationSystem/comfif" method=post style="display: inline">
+                        </form>
+                        <%--<form name=alipayment action="/ReservationSystem/comfif" method=post style="display: inline">
                             <input id="WIDout_trade_no" name="WIDout_trade_no" type="hidden" />
                             <input id="WIDtotal_amount" name="WIDtotal_amount" type="hidden"/>
                             <input id="hid" name="hbid" type="hidden" value="${fid}">
                             <input class="btn btn-primary" style="width: 80px" value="确认" type="submit">
-                        </form>
+                        </form>--%>
 
                         <!--回退-->
                         <a href="javascript:history.back(-1)" class="btn btn-danger" style="width: 80px;">返回</a>
