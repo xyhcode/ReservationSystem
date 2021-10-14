@@ -87,7 +87,7 @@
 
                 <td>
                     <c:choose>
-                        <c:when test="${info.departdate.getTime()>da.getTime() && info.transactionno!=''}">
+                        <c:when test="${info.da.getTime()>da.getTime() && info.transactionno!=''}">
                             ￥${info.fares}
                             <form action="/ReservationSystem/refun" method="post"  style="display: inline">
                                 <input type="hidden" name="WIDTRout_trade_no" value="${info.ordernumber}" />

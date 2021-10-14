@@ -5,6 +5,7 @@
 
 package com.action;
 
+import cn.hutool.core.date.DateUtil;
 import com.dao.SearchTicketDao;
 import com.entity.FlightInfo;
 import com.entity.OderFligAll;
@@ -33,7 +34,7 @@ public class OrderInfoAction extends ActionSupport {
     /**
      * 当前时间
      */
-    Date da=new Date();
+    Date da;
 
     public Date getDa() {
         return da;
@@ -70,12 +71,23 @@ public class OrderInfoAction extends ActionSupport {
         }
         //查询订单和航班信息两表联查
         List info = her.seorderflig(userinfoid);
+        String now = DateUtil.now();
+        da = DateUtil.parse(now);
         for(int i=0;i<info.size();i++){
             UsinfoFlig fo = (UsinfoFlig)info.get(i);
             List list =  fo.flg;
             FlightInfo fli = (FlightInfo)list.get(0);
+            //得到起飞的时间
+            Date stayear=fli.getDepartdate();
+            //时间转换成String
+            String formatDate = DateUtil.formatDate(stayear);
+            //得到离开的时间
+            String qifshij=fli.getLeavetime();
+            //拼接起飞年月日 和 离开时间
+            String lasttime=formatDate+" "+qifshij;
+            Date date = DateUtil.parse(lasttime);
             //循环放入
-            OderFligAll orfl=new OderFligAll(fo.getOrid(),fo.getUserid(),fo.getFligid(),fo.getAmt(),fo.getOrdernumber(),fo.getTransactionno(),fo.getPaytime(),fli.getFlid(),fli.getFlname(),fli.getDepartdate(),fli.getLeavecity(),fli.getLeavetime(),fli.getLeaveairport(),fli.getArrivecity(),fli.getArrivetime(),fli.getArriveairport(),fli.getVotes(),fli.getFares(),fli.getPunctuality());
+            OderFligAll orfl=new OderFligAll(fo.getOrid(),fo.getUserid(),fo.getFligid(),fo.getAmt(),fo.getOrdernumber(),fo.getTransactionno(),fo.getPaytime(),fli.getFlid(),fli.getFlname(),fli.getDepartdate(),fli.getLeavecity(),fli.getLeavetime(),fli.getLeaveairport(),fli.getArrivecity(),fli.getArrivetime(),fli.getArriveairport(),fli.getVotes(),fli.getFares(),fli.getPunctuality(),date);
             orlis.add(orfl);
         }
         return SUCCESS;

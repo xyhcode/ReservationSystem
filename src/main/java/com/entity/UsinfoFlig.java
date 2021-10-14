@@ -2,6 +2,9 @@ package com.entity;
 
 import java.util.List;
 
+/**
+ * @author 羡羡
+ */
 public class UsinfoFlig {
     public int orid;
     public int userid;

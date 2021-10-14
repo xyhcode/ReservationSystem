@@ -18,9 +18,6 @@ import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * @author 羡羡
- */
 public class LoginAction extends ActionSupport {
 
 //    账户

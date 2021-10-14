@@ -2,6 +2,9 @@ package com.entity;
 
 import java.util.Date;
 
+/**
+ * @author 羡羡
+ */
 public class OderFligAll {
     public int orid;
     public int userid;
@@ -22,6 +25,7 @@ public class OderFligAll {
     public int votes;
     public double fares;
     public String punctuality;
+    public Date da;
 
     public int getOrid() {
         return orid;
@@ -175,10 +179,37 @@ public class OderFligAll {
         this.punctuality = punctuality;
     }
 
-    public OderFligAll() {
+    public Date getDa() {
+        return da;
     }
 
-    public OderFligAll(int orid, int userid, int fligid, double amt, String ordernumber, String transactionno, String paytime, int flid, String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares, String punctuality) {
+    public void setDa(Date da) {
+        this.da = da;
+    }
+
+    public OderFligAll(int userid, int fligid, double amt, String ordernumber, String transactionno, String paytime, int flid, String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares, String punctuality, Date da) {
+        this.userid = userid;
+        this.fligid = fligid;
+        this.amt = amt;
+        this.ordernumber = ordernumber;
+        this.transactionno = transactionno;
+        this.paytime = paytime;
+        this.flid = flid;
+        this.flname = flname;
+        this.departdate = departdate;
+        this.leavecity = leavecity;
+        this.leavetime = leavetime;
+        this.leaveairport = leaveairport;
+        this.arrivecity = arrivecity;
+        this.arrivetime = arrivetime;
+        this.arriveairport = arriveairport;
+        this.votes = votes;
+        this.fares = fares;
+        this.punctuality = punctuality;
+        this.da = da;
+    }
+
+    public OderFligAll(int orid, int userid, int fligid, double amt, String ordernumber, String transactionno, String paytime, int flid, String flname, Date departdate, String leavecity, String leavetime, String leaveairport, String arrivecity, String arrivetime, String arriveairport, int votes, double fares, String punctuality, Date da) {
         this.orid = orid;
         this.userid = userid;
         this.fligid = fligid;
@@ -198,6 +229,7 @@ public class OderFligAll {
         this.votes = votes;
         this.fares = fares;
         this.punctuality = punctuality;
+        this.da = da;
     }
 
     @Override
@@ -222,6 +254,7 @@ public class OderFligAll {
                 ", votes=" + votes +
                 ", fares=" + fares +
                 ", punctuality='" + punctuality + '\'' +
+                ", da=" + da +
                 '}';
     }
 }
