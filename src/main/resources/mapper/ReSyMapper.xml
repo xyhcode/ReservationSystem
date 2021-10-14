@@ -81,4 +81,46 @@
         select * from orderinfo where orid=#{orid}
     </select>
 
+    <select id="secounflig" resultType="int">
+        select count(*) from flightinfo;
+    </select>
+
+    <select id="sedayfl" resultType="int">
+         select count(*) from flightinfo where departdate=#{departdate}
+    </select>
+
+
+    <select id="chuxrshu" resultType="int">
+        select count(*) from orderinfo as a inner join  flightinfo as b on a.fligid=b.flid where b.departdate=#{departdate};
+    </select>
+
+    <select id="dayyf" resultType="com.entity.FlightInfo">
+        select * from flightinfo where departdate = #{departdate};
+    </select>
+
+    <select id="jrzq" resultType="int">
+        select sum(amt) from orderinfo where paytime like '${value}%';
+    </select>
+
+
+    <!--后台用户管理-->
+    <select id="UserMang" resultType="com.entity.UserInfo">
+        select * from userinfo where phone like '%${value}%'
+    </select>
+
+    <!--删除用户-->
+    <delete id="deus">
+        delete from userinfo where usid=#{id}
+    </delete>
+
+    <!--后台航班查询所有&搜索-->
+    <select id="flseall" resultType="com.entity.FlightInfo">
+        select * from flightinfo where flname like '%{value}%'
+    </select>
+
+    <!--后台删除航班-->
+    <delete id="deflg">
+         delete from flightinfo where flid=#{fid}
+    </delete>
+
 </mapper>

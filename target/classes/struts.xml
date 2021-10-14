@@ -13,8 +13,9 @@
             <interceptor name="loginIntercept" class="com.intercept.LoginIntercept"></interceptor>
         </interceptors>
 
-        
-        
+
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+
         <!--首页搜索-->
         <action name="logac" class="com.action.SearchAllAction">
             <result name="success">/FrontDesk/result.jsp</result>
@@ -81,6 +82,10 @@
         <!--支付宝支付-->
         <action name="paymoney" class="com.action.PayMoneyAction">
             <result>/FrontDesk/rescess.jsp</result>
+        </action>
+
+        <action name="usmag*" class="com.action.UserAction" method="{1}">
+            <result>/Background/View/UserMang.jsp</result>
         </action>
 
     </package>

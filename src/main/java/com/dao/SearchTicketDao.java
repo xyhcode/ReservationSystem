@@ -80,4 +80,68 @@ public interface SearchTicketDao {
     * @return
     */
    public List seorder(int orid);
+
+
+   //=================================================================
+   //后台
+
+   /**
+    * 航班总条数
+    * @return
+    */
+   public int secounflig();
+
+   /**
+    * 今日起飞
+    * @param da
+    * @return
+    */
+   public int sedayfl(Date da);
+
+
+   /**
+    * 今日出行人数
+    */
+   public int chuxrshu(Date departdate);
+
+
+   /**
+    * 今日已飞
+    */
+   public List dayyf(Date da);
+
+   /**
+    * 今日总前
+    * @param
+    * @return
+    */
+   public int jrzq(String value);
+
+
+   /**
+    * 后台用户管理
+    */
+   public List UserMang(String phone);
+
+   /**
+    * 删除用户
+    * @param id
+    * @return
+    */
+   public int deus(int id);
+
+   /**
+    *航班查询
+    * @param fname
+    * @return
+    */
+   public List flseall(String fname);
+
+   /**
+    * 后台航班删除
+    * @param fid
+    * @return
+    */
+   public int defl(int fid);
+
 }

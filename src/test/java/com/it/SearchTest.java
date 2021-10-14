@@ -105,4 +105,21 @@ public class SearchTest {
         double dou=Integer.parseInt(cf);
         System.out.println(dou);
     }
+
+    @Test
+    public void seakf(){
+        String today= DateUtil.today();
+        System.out.println(today);
+        Date date = DateUtil.parse(today);
+        int cf=her.chuxrshu(date);
+        System.out.println(cf);
+    }
+
+
+    @Test
+    public void seakfr(){
+        String today= DateUtil.today();
+        int lis=her.jrzq(today);
+        System.out.println(lis);
+    }
 }

@@ -55,7 +55,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
+      <version>8.0.11</version>
     </dependency>
 
     <dependency>
@@ -80,6 +80,12 @@
       <groupId>com.alipay.sdk</groupId>
       <artifactId>alipay-sdk-java</artifactId>
       <version>3.4.27.ALL</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.8</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->

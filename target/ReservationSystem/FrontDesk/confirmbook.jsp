@@ -113,7 +113,7 @@
                     <div id="book_btns" align="right">
                         <!--div内容右对齐-->
                         <form name=alipayment action="/ReservationSystem/FrontDesk/alipay.trade.page.pay.jsp" method="post"
-                              target="_blank" style="display: inline" accept-charset="UTF-8">
+                              style="display: inline" accept-charset="UTF-8">
                             <input id="WIDout_trade_no" name="WIDout_trade_no" type="hidden" />
                             <input id="WIDsubject" name="WIDsubject" value="Air ticket payment" type="hidden"/>
                             <input id="WIDtotal_amount" name="WIDtotal_amount" type="hidden"/>
