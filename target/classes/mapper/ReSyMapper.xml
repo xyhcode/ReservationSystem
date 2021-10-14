@@ -115,7 +115,7 @@
 
     <!--后台航班查询所有&搜索-->
     <select id="flseall" resultType="com.entity.FlightInfo">
-        select * from flightinfo where flname like '%{value}%'
+        select * from flightinfo where flname like '%${value}%'
     </select>
 
     <!--后台删除航班-->

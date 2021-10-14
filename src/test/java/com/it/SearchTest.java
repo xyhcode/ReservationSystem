@@ -122,4 +122,11 @@ public class SearchTest {
         int lis=her.jrzq(today);
         System.out.println(lis);
     }
+
+
+    @Test
+    public void seanv(){
+        List lis=her.flseall("");
+        System.out.println(lis);
+    }
 }

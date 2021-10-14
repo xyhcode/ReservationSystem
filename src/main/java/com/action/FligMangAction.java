@@ -78,8 +78,15 @@ public class FligMangAction extends ActionSupport {
      * 删除数据
      * @return
      */
-    public String fdel(){
-
+    public String fdel() throws IOException {
+        SqlSession session= GetSqlSession.getsSession();
+        SearchTicketDao se=session.getMapper(SearchTicketDao.class);
+        //执行删除
+        int cf=se.deflg(flid);
+        //提交
+        session.commit();
+        session.close();
+        fseall();
         return  SUCCESS;
     }
 }

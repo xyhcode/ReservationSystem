@@ -14,6 +14,19 @@
     <script src="/ReservationSystem/JS/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="/ReservationSystem/layui/css/layui.css">
     <script src="/ReservationSystem/layui/layui.js"></script>
+    <script>
+        var table = layui.table;
+        //转换静态表格
+        table.init('demo', {
+            height: 500 //设置高度
+            ,limit: 10
+        });
+    </script>
+    <style>
+        #layui-laypage-1{
+            margin-left: 60px;
+        }
+    </style>
 </head>
 <body>
 <div style="margin-top: 25px;margin-left: 50px;width: 80%" id="toolbarDemo">
@@ -39,6 +52,12 @@
     </div>
     <div style="display: table-cell">
         <div style="display: table">
+            <!--新增-->
+            <div style="display: table-cell">
+                <button id="add" onclick="tj()" class="layui-btn layui-btn-sm" style="margin-left: 15px">
+                    <i class="layui-icon">&#xe608;</i> 新&emsp;增
+                </button>
+            </div>
             <!--刷新-->
             <div style="display: table-cell;">
                 <button id="refresh" onclick="cx()" class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 15px">
@@ -52,23 +71,37 @@
     <table class="layui-table" lay-filter="test" lay-even style="width: 1200px;margin-top:5px;text-align:center;" align="center">
         <thead>
         <tr>
-            <th style="text-align: center">用户账号</th>
-            <th style="text-align: center">用户姓名</th>
-            <th style="text-align: center">电话</th>
-            <th style="text-align: center">身份证</th>
+            <th style="text-align: center">航班名称</th>
+            <th style="text-align: center">航班日期</th>
+            <th style="text-align: center">离开城市</th>
+            <th style="text-align: center">离开时间</th>
+            <th style="text-align: center">离开机场</th>
+            <th style="text-align: center">到达城市</th>
+            <th style="text-align: center">到达时间</th>
+            <th style="text-align: center">到达机场</th>
+            <th style="text-align: center">票数</th>
+            <th style="text-align: center">价格</th>
+            <th style="text-align: center">准点率</th>
             <th style="text-align: center">操作</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${pa.list}" var="he">
             <tr>
-                <td>${he.account}</td>
-                <td>${he.name}</td>
-                <td>${he.phone}</td>
-                <td>${he.idCard}</td>
+                <td>${he.flname}</td>
+                <td>${he.departdate}</td>
+                <td>${he.leavecity}</td>
+                <td>${he.leavetime}</td>
+                <td>${he.leaveairport}</td>
+                <td>${he.arrivecity}</td>
+                <td>${he.arrivetime}</td>
+                <td>${he.arriveairport}</td>
+                <td>${he.votes}</td>
+                <td>${he.fares}</td>
+                <td>${he.punctuality}</td>
                 <td style="width: 100px">
-                    <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="edit('${he.account}','${he.name}','${he.phone}','${he.idCard}')">查看</a>
-                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del('${he.usId}')">删除</a>
+                    <a class="layui-btn layui-btn-xs" lay-event="edit" onclick="edit('${he.flid}','${he.flname}','${he.departdate}','${he.leavecity}','${he.leavetime}','${he.leaveairport}','${he.arrivecity}','${he.arrivetime}','${he.arriveairport}','${he.votes}','${he.fares}','${he.punctuality}')">编辑</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del('${he.flid}')">删除</a>
                 </td>
             </tr>
         </c:forEach>
@@ -96,7 +129,7 @@
             ,next: '<em>→</em>'
             ,jump: function(obj, first) {//分页回调 每次都会触发
                 if(!first){
-                    location.href="usmagfind?soname=${soname}&page="+obj.curr;
+                    location.href="flmafseall?flnam=${flnam}&page="+obj.curr;
                 }
             }
         });
@@ -105,12 +138,12 @@
     //搜索
     function search(){
         var likname=$("#cpk").val();
-        location.href="usmagfind?soname="+likname+"";
+        location.href="flmafseall?flnam="+likname+"";
     }
 
     //刷新
     function cx(){
-        location.href="usmagfind?page=1";
+        location.href="flmafseall?page=1";
     }
 
     //头部重置
@@ -118,19 +151,42 @@
         $("#cpk").val("");
     }
 
-    var acc="";
-    var nam="";
-    var pho="";
-    var idcard="";
-    function edit(ac,na,ph,idca){
-        acc=ac;
-        nam=na;
-        pho=ph;
-        idcard=idca;
-        $("#name").val(ac);
-        $("#nickname").val(na);
-        $("#sex").val(ph);
-        $("#first").val(idca);
+    var flid="";
+    var fnaa;
+    var dep="";
+    var letci="";
+    var letim="";
+    var leport="";
+    var arcity="";
+    var arctime="";
+    var arport="";
+    var vos="";
+    var fas="";
+    var puty="";
+    function edit(id,fna,depa,lc,lt,lp,ac,at,ap,vs,fs,py){
+        flid=id;
+        fnaa=fna;
+        dep=depa;
+        letci=lc;
+        letim=lt;
+        leport=lp;
+        arcity=ac;
+        arctime=at;
+        arport=ap;
+        vos=vs;
+        fas=fs;
+        puty=py;
+        $("#name").value(fna);
+        $("#nickname").val(depa);
+        $("#sex").val(lc);
+        $("#first").val(lt);
+        $("#jc").val(lp);
+        $("#dcs").val(ac);
+        $("#dsj").val(at);
+        $("#ddjc").val(ap);
+        $("#vo").val(vs);
+        $("#pj").val(fs);
+        $("#zd").val(py)
         layer.open({
             type : 1,
             title : '编辑英雄信息',
@@ -139,15 +195,6 @@
             content : $('#df'),
         });
     }
-
-    //编辑重置
-    function updare(){
-        $("#name").val(acc);
-        $("#nickname").val(nam);
-        $("#sex").val(pho);
-        $("#first").val(idcard);
-    }
-
     //关闭
     function  gbi(){
         layer.closeAll();
@@ -156,7 +203,7 @@
     //删除
     function del(hj) {
         layer.confirm('确认删除嘛？', function(index){
-            location.href="usmagdef?id="+hj+"";
+            location.href="flmafdel?flid="+hj+"";
             var ii = layer.load();
             //此处用setTimeout演示ajax的回调
             setTimeout(function(){
@@ -167,4 +214,103 @@
     }
 </script>
 </body>
+<div style="padding: 20px; display: none" id="df">
+    <form action="Herosupdate" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">航班名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" id="name" placeholder="请输入航班名称"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+                <input  type="hidden" name="herid" id="heid"/>
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">航班日期：</label>
+            <div class="layui-input-block">
+                <input type="text" name="nickname" id="nickname" placeholder="请输入日期"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">离开城市：</label>
+            <div class="layui-input-block">
+                <input type="text" name="sex" id="sex" placeholder="请输入离开城市"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">离开时间：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="first" placeholder="请输入离开时间"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">离开机场：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="jc" placeholder="请输入离开机场"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">到达城市：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="dcs" placeholder="请输入到达城市"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">到达时间：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="dsj" placeholder="请输入到达时间"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">到达机场：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="ddjc" placeholder="请输入到达机场"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">航班票数：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="vo" placeholder="请输入票数"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">航班票价：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="pj" placeholder="请输入票价"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br>
+        <div class="layui-form-item" style="display: table-cell; width: 50%">
+            <label class="layui-form-label">航班准点：</label>
+            <div class="layui-input-block">
+                <input type="text" name="first" id="zd" placeholder="请输入准点率"
+                       autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <br><br>
+        <div class="layui-form-item" id="bu3">
+            <div class="layui-btn-group">
+                <button class="layui-btn" lay-submit="" lay-filter="update_submit">提&ensp;交</button>
+                <button type="button" class="layui-btn layui-btn-primary" onclick="updare()">重&ensp;置</button>
+            </div>
+        </div>
+    </form>
+</div>
 </html>

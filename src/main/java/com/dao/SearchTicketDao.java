@@ -142,6 +142,6 @@ public interface SearchTicketDao {
     * @param fid
     * @return
     */
-   public int defl(int fid);
+   public int deflg(int fid);
 
 }

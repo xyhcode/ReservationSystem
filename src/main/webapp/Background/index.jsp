@@ -77,7 +77,7 @@
                     </li>
                     <!-- 学科管理  ScienceManagement-->
                     <li data-name="template" class="layui-nav-item">
-                        <a href="javascript:;" lay-tips="航班管理" lay-direction="2">
+                        <a href="javascript:;" lay-tips="航班管理" lay-direction="2" lay-href="flmafseall">
                             <i class="layui-icon layui-icon-template"></i>
                             <cite>航班管理</cite>
                         </a>

@@ -88,5 +88,10 @@
             <result>/Background/View/UserMang.jsp</result>
         </action>
 
+
+        <action name="flma*" class="com.action.FligMangAction" method="{1}">
+            <result>/Background/View/FlightMang.jsp</result>
+        </action>
+
     </package>
 </struts>
