@@ -20,3 +20,6 @@ Struts Mybatis Layui Bootstrap Jquery Echarts
 2. 更改数据库配置文件 druid.properties 修改对应的url、账号、密码、驱动（此项目驱动较高 若使用8.0以下数据库 请更改驱动）
 3. 更改支付宝沙箱配置类 AlipayConfig.java 修改对应的支付宝沙箱信息 更改信息参考 [支付宝开放平台](https://open.alipay.com/)
 4. 项目中使用了短信发送 需要更改 RefundAction、TextMessagAction类中的短信账号和短信秘钥 参考[网建短信通](https://www.smschinese.com.cn/Login.shtml)  当然了可以使用其他平台短信 如 腾讯、阿里..
+
+#### 项目说明
+后台只有用户管理完成了 航班只有界面 其他都是未完成！
