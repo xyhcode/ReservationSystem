@@ -19,11 +19,11 @@ public class RefundActionNo extends ActionSupport {
     /**
      * 账号
      */
-    public String Uid = "林沐xyh";
+    public String Uid = "短信账号";
     /**
      * 接口安全秘钥
      */
-    public String Key = "xyh2730023435";
+    public String Key = "短信接口秘钥";
     /**
      * 电话
      */
